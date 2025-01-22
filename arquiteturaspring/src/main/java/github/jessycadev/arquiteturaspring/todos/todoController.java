@@ -4,26 +4,26 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("todos")
-public class todoController {
-    private todoService service;
+public class TodoController {
+    private TodoService service;
 
-    public todoController(todoService todoService){
+    public TodoController(TodoService todoService){
         this.service = todoService;
     }
 
     @PostMapping
-    public todoEntity salvar(@RequestBody todoEntity todoE){
+    public TodoEntity salvar(@RequestBody TodoEntity todoE){
         return this.service.salvar(todoE);
     }
 
     @PutMapping("{id}")
-    public void AtualizarStatus(@PathVariable("id") Integer id, @RequestBody todoEntity todo){
+    public void AtualizarStatus(@PathVariable("id") Integer id, @RequestBody TodoEntity todo){
         todo.setId((id));
         this.service.atualizarStatus(todo);
     }
 
     @GetMapping("{id}")
-    public todoEntity buscarTodo(@PathVariable("id") Integer id){
+    public TodoEntity buscarTodo(@PathVariable("id") Integer id){
         return this.service.buscarTodoPorId(id);
 
     }

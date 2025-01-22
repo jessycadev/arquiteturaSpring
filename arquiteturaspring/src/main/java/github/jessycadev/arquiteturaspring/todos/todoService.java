@@ -3,23 +3,23 @@ package github.jessycadev.arquiteturaspring.todos;
 import org.springframework.stereotype.Service;
 
 @Service
-public class todoService {
+public class TodoService {
 
-    private todoRepository repository;
+    private TodoRepository repository;
 
-    public todoService(todoRepository todoRepository){
+    public TodoService(TodoRepository todoRepository){
         this.repository = todoRepository;
     }
 
-    public todoEntity salvar(todoEntity novoTodo){
+    public TodoEntity salvar(TodoEntity novoTodo){
         return repository.save(novoTodo);
     }
 
-    public todoEntity atualizarStatus(todoEntity todo) {
+    public TodoEntity atualizarStatus(TodoEntity todo) {
         return repository.save((todo));
     }
 
-    public todoEntity buscarTodoPorId(Integer id) {
+    public TodoEntity buscarTodoPorId(Integer id) {
         return repository.findById(id).orElse(null);
     }
 }

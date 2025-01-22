@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_todo")
-public class todoEntity {
+public class TodoEntity {
 
     @Id
     @Column(name = "id")
